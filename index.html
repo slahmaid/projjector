@@ -1320,8 +1320,7 @@
 
           // Since we use no-cors, we won't get a "success" body,
           // so we assume success if no error is thrown.
-          alert("شكراً لك! تم استلام طلبك بنجاح. سنتصل بك قريباً.");
-          form.reset();
+          window.location.href = "./thank-you.html";
         } catch (error) {
           console.error("Error:", error);
           alert("عذراً، حدث خطأ. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة.");
