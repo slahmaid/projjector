@@ -934,6 +934,23 @@
       }
     }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2175069083318439');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2175069083318439&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <div class="announcement-bar">
@@ -945,12 +962,12 @@
     </div>
     <div class="hero-inner">
       <div class="hero-copy">
-        <h1>بروجكتور شمسي يبدأ من <span class="hero-price-steal">599&nbsp;درهم</span></h1>
+        <h1>بروجكتور شمسي يبدأ من <span class="hero-price-steal">699&nbsp;درهم</span></h1>
         <p>
           حنا ماشي غير متجر إلكتروني، حنا فريق مغربي كيسهر على الطلبيات ديالكم حبة بحبة. هدفنا هو نضويو ليك دارك، السطح، ولا الفيرما بأحسن جودة وأقل تكلفة.
         </p>
         <div class="hero-cta-group">
-          <a class="hero-btn hero-btn-primary" href="#order-form-main">اطلب الآن — <span class="hero-cta-price">599&nbsp;درهم</span></a>
+          <a class="hero-btn hero-btn-primary" href="#order-form-main">اطلب الآن — <span class="hero-cta-price">699&nbsp;درهم</span></a>
           <a class="hero-btn hero-btn-secondary" href="#features">تعرّف على الثقة</a>
         </div>
       </div>
@@ -990,10 +1007,10 @@
               <img src="img/300W.webp" alt="300W" loading="lazy" />
               <div class="variant-price-block">
                 <span class="variant-deal-tag">استفد من العرض دابا</span>
-                <span class="variant-price">599 Dh</span>
+                <span class="variant-price">699 Dh</span>
                 <div class="variant-was-row">
                   <span class="variant-compare-prefix">كان</span>
-                  <span class="variant-compare">799 Dh</span>
+                  <span class="variant-compare">899 Dh</span>
                 </div>
                 <span class="variant-savings">وفر 200&nbsp;درهم</span>
               </div>
@@ -1006,7 +1023,7 @@
               <img src="img/400W.webp" alt="400W" loading="lazy" />
               <div class="variant-price-block">
                 <span class="variant-deal-tag">استفد من العرض دابا</span>
-                <span class="variant-price">699 Dh</span>
+                <span class="variant-price">799 Dh</span>
                 <div class="variant-was-row">
                   <span class="variant-compare-prefix">كان</span>
                   <span class="variant-compare">999 Dh</span>
@@ -1103,10 +1120,10 @@
               <img src="img/300W.webp" alt="300W" loading="lazy" />
               <div class="variant-price-block">
                 <span class="variant-deal-tag">استفد من العرض دابا</span>
-                <span class="variant-price">599 Dh</span>
+                <span class="variant-price">699 Dh</span>
                 <div class="variant-was-row">
                   <span class="variant-compare-prefix">كان</span>
-                  <span class="variant-compare">799 Dh</span>
+                  <span class="variant-compare">899 Dh</span>
                 </div>
                 <span class="variant-savings">وفر 200&nbsp;درهم</span>
               </div>
@@ -1119,7 +1136,7 @@
               <img src="img/400W.webp" alt="400W" loading="lazy" />
               <div class="variant-price-block">
                 <span class="variant-deal-tag">استفد من العرض دابا</span>
-                <span class="variant-price">699 Dh</span>
+                <span class="variant-price">799 Dh</span>
                 <div class="variant-was-row">
                   <span class="variant-compare-prefix">كان</span>
                   <span class="variant-compare">999 Dh</span>
@@ -1236,17 +1253,21 @@
     <div class="mobile-sticky-variants" role="group" aria-label="اختيار النسخة">
       <button type="button" class="mobile-sticky-variant is-active" data-watt="300" aria-pressed="true">
         <span class="mobile-sticky-watt">300W</span>
-        <span class="mobile-sticky-price">599 Dh</span>
+        <span class="mobile-sticky-price">699 Dh</span>
       </button>
       <button type="button" class="mobile-sticky-variant" data-watt="400" aria-pressed="false">
         <span class="mobile-sticky-watt">400W</span>
-        <span class="mobile-sticky-price">699 Dh</span>
+        <span class="mobile-sticky-price">799 Dh</span>
       </button>
     </div>
     <a href="#order-form-main" class="mobile-sticky-cta" id="mobile-sticky-cta">اطلب الآن — خصم 25%</a>
   </aside>
   <script>
+    // --- INSERT YOUR GOOGLE WEB APP URL HERE ---
+    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxxrtGbDKWEczxWVUHo5w8QGGL3mXSNQiqDInMCJKFJmJhsMaAevdCUBQt1_q1iXseU/exec";
+
     (function () {
+      // Quantity Stepper Logic
       document.querySelectorAll("[data-qty-field]").forEach(function (root) {
         var input = root.querySelector(".qty-input");
         var minus = root.querySelector(".qty-minus");
@@ -1266,8 +1287,56 @@
         input.addEventListener("change", clamp);
         input.addEventListener("blur", clamp);
       });
-    })();
-    (function () {
+
+      // Form Submission Logic
+      const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+
+        // Collect Data
+        const formData = new FormData(form);
+        const data = {
+          variant: formData.get("variant") || formData.get("variant-second"),
+          name: formData.get("name"),
+          city: formData.get("city"),
+          phone: formData.get("phone"),
+          quantity: formData.get("quantity")
+        };
+
+        // UI Loading State
+        submitBtn.disabled = true;
+        submitBtn.innerText = "جاري الإرسال...";
+
+        try {
+          await fetch(GOOGLE_SHEET_URL, {
+            method: "POST",
+            mode: "no-cors", // Important for Google Apps Script
+            cache: "no-cache",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          // Since we use no-cors, we won't get a "success" body,
+          // so we assume success if no error is thrown.
+          alert("شكراً لك! تم استلام طلبك بنجاح. سنتصل بك قريباً.");
+          form.reset();
+        } catch (error) {
+          console.error("Error:", error);
+          alert("عذراً، حدث خطأ. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة.");
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalBtnText;
+        }
+      };
+
+      // Attach to both forms
+      document.querySelectorAll(".order-form").forEach((form) => {
+        form.addEventListener("submit", handleFormSubmit);
+      });
+
+      // Countdown & Sticky Logic
       var countdownEl = document.getElementById("discount-countdown");
       if (countdownEl) {
         function midnightTomorrow() {
@@ -1286,10 +1355,7 @@
           var h = Math.floor(s / 3600);
           var m = Math.floor((s % 3600) / 60);
           var sec = s % 60;
-          var parts = [h, m, sec].map(function (n) {
-            return String(n).padStart(2, "0");
-          });
-          countdownEl.textContent = parts.join(":");
+          countdownEl.textContent = [h, m, sec].map((n) => String(n).padStart(2, "0")).join(":");
           var endDate = new Date(Date.now() + ms);
           countdownEl.setAttribute("datetime", endDate.toISOString());
         }
@@ -1298,47 +1364,37 @@
       }
 
       var sticky = document.getElementById("mobile-sticky");
-      if (!sticky) return;
+      if (sticky) {
+        function setStickyVariant(watt) {
+          sticky.querySelectorAll(".mobile-sticky-variant").forEach(function (btn) {
+            var on = btn.getAttribute("data-watt") === watt;
+            btn.classList.toggle("is-active", on);
+            btn.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+          // Update radio buttons in both forms
+          document.querySelectorAll('input[value="' + watt + 'W"]').forEach(function (radio) {
+            radio.checked = true;
+          });
+        }
 
-      var v300 = document.getElementById("variant-300");
-      var v400 = document.getElementById("variant-400");
-      var v300s = document.getElementById("variant-second-300");
-      var v400s = document.getElementById("variant-second-400");
-
-      function applyWattToForms(watt) {
-        var is300 = watt === "300";
-        if (v300) v300.checked = is300;
-        if (v400) v400.checked = !is300;
-        if (v300s) v300s.checked = is300;
-        if (v400s) v400s.checked = !is300;
-      }
-
-      function setStickyVariant(watt) {
         sticky.querySelectorAll(".mobile-sticky-variant").forEach(function (btn) {
-          var on = btn.getAttribute("data-watt") === watt;
-          btn.classList.toggle("is-active", on);
-          btn.setAttribute("aria-pressed", on ? "true" : "false");
+          btn.addEventListener("click", function () {
+            setStickyVariant(btn.getAttribute("data-watt"));
+          });
         });
-        applyWattToForms(watt);
+
+        var cta = document.getElementById("mobile-sticky-cta");
+        if (cta) {
+          cta.addEventListener("click", function () {
+            var active = sticky.querySelector(".mobile-sticky-variant.is-active");
+            var watt = active ? active.getAttribute("data-watt") : "300";
+            setStickyVariant(watt);
+          });
+        }
+
+        var firstChecked = document.querySelector('input[name="variant"]:checked');
+        if (firstChecked) setStickyVariant(firstChecked.value.replace("W", ""));
       }
-
-      sticky.querySelectorAll(".mobile-sticky-variant").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          setStickyVariant(btn.getAttribute("data-watt"));
-        });
-      });
-
-      var cta = document.getElementById("mobile-sticky-cta");
-      if (cta) {
-        cta.addEventListener("click", function () {
-          var active = sticky.querySelector(".mobile-sticky-variant.is-active");
-          var watt = active ? active.getAttribute("data-watt") : "300";
-          applyWattToForms(watt);
-        });
-      }
-
-      if (v300 && v300.checked) setStickyVariant("300");
-      else if (v400 && v400.checked) setStickyVariant("400");
     })();
   </script>
 </body>
