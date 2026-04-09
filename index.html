@@ -1041,7 +1041,7 @@
         <input id="city" name="city" type="text" placeholder="المدينة والعنوان (فين بغيتي توصلك السلعة)" required />
 
         <label for="phone">رقم الهاتف</label>
-        <input id="phone" name="phone" type="tel" placeholder="الواتساب ولا الاتصال عادي — شنو أنسب ليك" required />
+        <input id="phone" name="phone" type="tel" placeholder="الواتساب ولا الاتصال عادي — شنو أنسب ليك" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" />
 
         <div class="qty-field" data-qty-field>
           <span class="qty-label-text">الكمية</span>
@@ -1154,7 +1154,7 @@
         <input id="city-second" name="city" type="text" placeholder="المدينة والعنوان (فين بغيتي توصلك السلعة)" required />
 
         <label for="phone-second">رقم الهاتف</label>
-        <input id="phone-second" name="phone" type="tel" placeholder="الواتساب ولا الاتصال عادي — شنو أنسب ليك" required />
+        <input id="phone-second" name="phone" type="tel" placeholder="الواتساب ولا الاتصال عادي — شنو أنسب ليك" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" />
 
         <div class="qty-field" data-qty-field>
           <span class="qty-label-text">الكمية</span>
@@ -1288,6 +1288,14 @@
         input.addEventListener("blur", clamp);
       });
 
+      // Phone field: allow digits only and cap at 10 numbers.
+      document.querySelectorAll('input[name="phone"]').forEach(function (input) {
+        input.addEventListener("input", function () {
+          var digits = input.value.replace(/\D/g, "").slice(0, 10);
+          input.value = digits;
+        });
+      });
+
       // Form Submission Logic
       const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -1297,11 +1305,16 @@
 
         // Collect Data
         const formData = new FormData(form);
+        const phoneValue = String(formData.get("phone") || "").replace(/\D/g, "").slice(0, 10);
+        if (phoneValue.length !== 10) {
+          alert("المرجو إدخال رقم هاتف من 10 أرقام.");
+          return;
+        }
         const data = {
           variant: formData.get("variant") || formData.get("variant-second"),
           name: formData.get("name"),
           city: formData.get("city"),
-          phone: formData.get("phone"),
+          phone: phoneValue,
           quantity: formData.get("quantity")
         };
 
